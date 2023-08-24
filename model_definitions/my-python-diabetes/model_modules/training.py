@@ -33,7 +33,7 @@ def train(context: ModelContext, **kwargs):
     model = Pipeline([('scaler', MinMaxScaler()),
                       ('xgb', XGBClassifier(eta=context.hyperparams["eta"],
                                             max_depth=context.hyperparams["max_depth"]))])
-
+    
     model.fit(X_train, y_train)
 
     print("Finished training")
@@ -44,7 +44,7 @@ def train(context: ModelContext, **kwargs):
     # we can also save as pmml so it can be used for In-Vantage scoring etc.
     xgboost_to_pmml(pipeline=model, col_names=feature_names, target_name=target_name,
                     pmml_f_name=f"{context.artifact_output_path}/model.pmml")
-
+    
     print("Saved trained model")
 
     from xgboost import plot_importance
