@@ -2,9 +2,7 @@
 
 Aoa Models Repository. 
 
-*Replace with relevant description.* 
-
-Refer to the [Official Documentation](https://docs.tdaoa.com) for more information.
+My local Model Repo with a XGB Model for PIMA classification.
 
 # Available Models
-
+- Python Diabetes Prediction (Dev)
