@@ -44,7 +44,10 @@ def evaluate(context: ModelContext, **kwargs):
     with open(f"{context.artifact_output_path}/metrics.json", "w+") as f:
         json.dump(evaluation, f)
 
-    metrics.plot_confusion_matrix(model, X_test, y_test)
+    #metrics.plot_confusion_matrix(model, X_test, y_test)
+    #save_plot('Confusion Matrix', context=context)
+
+    metrics.ConfusionMatrixDisplay.from_estimator(model,X_test, y_test)
     save_plot('Confusion Matrix', context=context)
 
     metrics.plot_roc_curve(model, X_test, y_test)
