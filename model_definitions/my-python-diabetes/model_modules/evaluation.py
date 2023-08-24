@@ -50,7 +50,10 @@ def evaluate(context: ModelContext, **kwargs):
     metrics.ConfusionMatrixDisplay.from_estimator(model,X_test, y_test)
     save_plot('Confusion Matrix', context=context)
 
-    metrics.plot_roc_curve(model, X_test, y_test)
+    #metrics.plot_roc_curve(model, X_test, y_test)
+    #save_plot('ROC Curve', context=context)
+
+    metrics.RocCurveDisplay.from_estimator(model, X_test, y_test)
     save_plot('ROC Curve', context=context)
 
     # xgboost has its own feature importance plot support but lets use shap as explainability example
